@@ -14,7 +14,6 @@ use pocketmine\plugin\PluginBase;
 final class Loader extends PluginBase{
 
 	protected function onEnable() : void{
-
 		$this->getServer()->getPluginManager()->registerEvent(NetworkInterfaceRegisterEvent::class, function(NetworkInterfaceRegisterEvent $event) : void{
 			$network = $event->getInterface();
 			if($network instanceof DedicatedQueryNetworkInterface){
