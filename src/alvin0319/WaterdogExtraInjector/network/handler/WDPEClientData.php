@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace alvin0319\WaterdogExtraInjector\network\handler;
 
-use pocketmine\network\mcpe\protocol\types\login\ClientDataAnimationFrame;
-use pocketmine\network\mcpe\protocol\types\login\ClientDataPersonaPieceTintColor;
-use pocketmine\network\mcpe\protocol\types\login\ClientDataPersonaSkinPiece;
-
 final class WDPEClientData{
 	/**
-	 * @var ClientDataAnimationFrame[]
+	 * @var \pocketmine\network\mcpe\protocol\types\login\ClientDataAnimationFrame[]
 	 * @required
 	 */
 	public array $AnimatedImageData;
@@ -61,7 +57,7 @@ final class WDPEClientData{
 	public string $LanguageCode;
 
 	/**
-	 * @var ClientDataPersonaSkinPiece[]
+	 * @var \pocketmine\network\mcpe\protocol\types\login\ClientDataPersonaSkinPiece[]
 	 * @required
 	 */
 	public array $PersonaPieces;
@@ -70,7 +66,7 @@ final class WDPEClientData{
 	public bool $PersonaSkin;
 
 	/**
-	 * @var ClientDataPersonaPieceTintColor[]
+	 * @var \pocketmine\network\mcpe\protocol\types\login\ClientDataPersonaPieceTintColor[]
 	 * @required
 	 */
 	public array $PieceTintColors;
