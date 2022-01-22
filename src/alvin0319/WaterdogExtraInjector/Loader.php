@@ -24,7 +24,7 @@ final class Loader extends PluginBase{
 				$event->cancel();
 				$this->getServer()->getNetwork()->registerInterface(new WDPERakLibInterface($this->getServer(), $this->getServer()->getIp(), $this->getServer()->getPort(), false));
 				if($this->getServer()->getConfigGroup()->getConfigBool("enable-ipv6", true)){
-					$this->getServer()->getNetwork()->registerInterface(new WDPERakLibInterface($this->getServer(), $this->getServer()->getIpV6(), $this->getServer()->getPort(), true));
+					$this->getServer()->getNetwork()->registerInterface(new WDPERakLibInterface($this->getServer(), $this->getServer()->getIpV6(), $this->getServer()->getPortV6(), true));
 				}
 			}
 		}, EventPriority::NORMAL, $this, true);
