@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace alvin0319\WaterdogExtraInjector\network\handler;
 
-use alvin0319\WaterdogExtraInjector\network\WDPENetworkSession;
 use Closure;
 use InvalidArgumentException;
 use JsonMapper;
@@ -63,7 +62,7 @@ final class WDPELoginPacketHandler extends PacketHandler{
 	 * @phpstan-param Closure(PlayerInfo) : void $playerInfoConsumer
 	 * @phpstan-param Closure(bool $isAuthenticated, bool $authRequired, ?string $error, ?string $clientPubKey) : void $authCallback
 	 */
-	public function __construct(Server $server, WDPENetworkSession $session, Closure $playerInfoConsumer, Closure $authCallback){
+	public function __construct(Server $server, NetworkSession $session, Closure $playerInfoConsumer, Closure $authCallback){
 		$this->session = $session;
 		$this->server = $server;
 		$this->playerInfoConsumer = $playerInfoConsumer;
@@ -97,7 +96,7 @@ final class WDPELoginPacketHandler extends PacketHandler{
 
 		try{
 			$skin = SkinAdapterSingleton::get()->fromSkinData(self::fromClientData($clientData));
-		}catch(InvalidArgumentException | InvalidSkinException $e){
+		}catch(InvalidArgumentException|InvalidSkinException $e){
 			$this->session->getLogger()->debug("Invalid skin: " . $e->getMessage());
 			$this->session->disconnect(KnownTranslationKeys::DISCONNECTIONSCREEN_INVALIDSKIN);
 
