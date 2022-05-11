@@ -92,7 +92,10 @@ final class WDPELoginPacketHandler extends PacketHandler{
 
 		$clientData = $this->parseWDPEClientData($packet->clientDataJwt);
 
-		$this->session->setPlayerAddress($clientData->Waterdog_IP);
+		(function() use ($clientData) : void{
+			/** @noisnpectoin PhpUndefinedFieldInspection */
+			$this->ip = $clientData->Waterdog_IP;
+		})->call($this->session);
 
 		try{
 			$skin = SkinAdapterSingleton::get()->fromSkinData(self::fromClientData($clientData));
