@@ -54,6 +54,9 @@ final class WDPEClientData{
 	public int $GuiScale;
 
 	/** @required */
+    	public bool $IsEditorMode = false;
+
+	/** @required */
 	public string $LanguageCode;
 
 	/**
