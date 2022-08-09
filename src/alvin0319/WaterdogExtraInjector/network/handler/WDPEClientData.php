@@ -128,6 +128,9 @@ final class WDPEClientData{
 	public bool $ThirdPartyNameOnly;
 
 	/** @required */
+	public bool $TrustedSkin;
+
+	/** @required */
 	public int $UIProfile;
 
 	/** @required */
