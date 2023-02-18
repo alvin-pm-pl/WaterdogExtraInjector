@@ -59,6 +59,8 @@ final class WDPEClientData{
 	/** @required */
 	public string $LanguageCode;
 
+	public bool $OverrideSkin;
+
 	/**
 	 * @var \pocketmine\network\mcpe\protocol\types\login\ClientDataPersonaSkinPiece[]
 	 * @required
