@@ -33,6 +33,9 @@ final class WDPEClientData{
 	public int $ClientRandomId;
 
 	/** @required */
+    	public bool $CompatibleWithClientSideChunkGen;
+
+	/** @required */
 	public int $CurrentInputMode;
 
 	/** @required */
