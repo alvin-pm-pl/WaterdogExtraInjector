@@ -118,6 +118,14 @@ final class WDPELoginPacketHandler extends PacketHandler{
 		}
 		($this->playerInfoConsumer)($playerInfo);
 
+		Closure::bind(
+			closure: function(NetworkSession $session) use ($playerInfo) : void{
+				$session->info = $playerInfo;
+			},
+			newThis: $this,
+			newScope: NetworkSession::class
+		)($this->session);
+
 		$ev = new PlayerPreLoginEvent(
 			$playerInfo,
 			$this->session->getIp(),
