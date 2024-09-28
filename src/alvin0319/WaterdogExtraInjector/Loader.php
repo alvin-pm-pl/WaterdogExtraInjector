@@ -7,6 +7,7 @@ namespace alvin0319\WaterdogExtraInjector;
 use alvin0319\WaterdogExtraInjector\network\handler\WDPELoginPacketHandler;
 use pocketmine\event\EventPriority;
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\lang\Translatable;
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\LoginPacket;
 use pocketmine\network\PacketHandlingException;
@@ -41,7 +42,7 @@ final class Loader extends PluginBase{
 						/** @noinspection PhpUndefinedMethodInspection */
 						$this->getLogger()->setPrefix($this->getLogPrefix());
 					})->call($event->getOrigin());
-				}, function(bool $isAuthenticated, bool $authRequired, ?string $error, ?string $clientPubKey) use ($event) : void{
+				}, function(bool $isAuthenticated, bool $authRequired, string|Translatable|null $error, ?string $clientPubKey) use ($event) : void{
 					\Closure::bind(
 						closure: function(NetworkSession $session) use ($isAuthenticated, $authRequired, $error, $clientPubKey) : void{
 							$session->setAuthenticationStatus($isAuthenticated, $authRequired, $error, $clientPubKey);
